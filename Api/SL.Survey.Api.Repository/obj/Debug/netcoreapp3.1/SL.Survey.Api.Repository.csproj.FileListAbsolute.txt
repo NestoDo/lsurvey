@@ -1,0 +1,9 @@
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\bin\Debug\netcoreapp3.1\SL.Survey.Api.Repository.deps.json
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\bin\Debug\netcoreapp3.1\SL.Survey.Api.Repository.dll
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\bin\Debug\netcoreapp3.1\SL.Survey.Api.Repository.pdb
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\obj\Debug\netcoreapp3.1\SL.Survey.Api.Repository.csprojAssemblyReference.cache
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\obj\Debug\netcoreapp3.1\SL.Survey.Api.Repository.AssemblyInfoInputs.cache
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\obj\Debug\netcoreapp3.1\SL.Survey.Api.Repository.AssemblyInfo.cs
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\obj\Debug\netcoreapp3.1\SL.Survey.Api.Repository.csproj.CoreCompileInputs.cache
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\obj\Debug\netcoreapp3.1\SL.Survey.Api.Repository.dll
+C:\projects\lsurvey\Api\SL.Survey.Api.Repository\obj\Debug\netcoreapp3.1\SL.Survey.Api.Repository.pdb

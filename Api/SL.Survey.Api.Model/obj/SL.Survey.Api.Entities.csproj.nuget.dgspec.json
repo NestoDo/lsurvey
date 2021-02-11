@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Model.csproj": {}
+    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Entities.csproj": {}
   },
   "projects": {
-    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Model.csproj": {
+    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Model.csproj",
-        "projectName": "SL.Survey.Api.Model",
-        "projectPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Model.csproj",
+        "projectUniqueName": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Entities.csproj",
+        "projectName": "SL.Survey.Api.Entities",
+        "projectPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\SL.Survey.Api.Entities.csproj",
         "packagesPath": "C:\\Users\\omare\\.nuget\\packages\\",
         "outputPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Model\\obj\\",
         "projectStyle": "PackageReference",
