@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\lsurvey\\SL.Survey.Api\\SL.Survey.Api.csproj",
+      "projectUniqueName": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api\\SL.Survey.Api.csproj",
       "projectName": "SL.Survey.Api",
-      "projectPath": "C:\\projects\\lsurvey\\SL.Survey.Api\\SL.Survey.Api.csproj",
+      "projectPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api\\SL.Survey.Api.csproj",
       "packagesPath": "C:\\Users\\omare\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\lsurvey\\SL.Survey.Api\\obj\\",
+      "outputPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\omare\\AppData\\Roaming\\NuGet\\NuGet.Config",

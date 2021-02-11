@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\lsurvey\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj": {}
+    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj": {}
   },
   "projects": {
-    "C:\\projects\\lsurvey\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj": {
+    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\lsurvey\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj",
+        "projectUniqueName": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj",
         "projectName": "SL.Survey.Api.Repository",
-        "projectPath": "C:\\projects\\lsurvey\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj",
+        "projectPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj",
         "packagesPath": "C:\\Users\\omare\\.nuget\\packages\\",
-        "outputPath": "C:\\projects\\lsurvey\\SL.Survey.Api.Repository\\obj\\",
+        "outputPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\omare\\AppData\\Roaming\\NuGet\\NuGet.Config",

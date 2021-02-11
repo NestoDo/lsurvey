@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\projects\\lsurvey\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj": {}
+    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj": {}
   },
   "projects": {
-    "C:\\projects\\lsurvey\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj": {
+    "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\projects\\lsurvey\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj",
+        "projectUniqueName": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj",
         "projectName": "SL.Survey.Api.Business",
-        "projectPath": "C:\\projects\\lsurvey\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj",
+        "projectPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Business\\SL.Survey.Api.Business.csproj",
         "packagesPath": "C:\\Users\\omare\\.nuget\\packages\\",
-        "outputPath": "C:\\projects\\lsurvey\\SL.Survey.Api.Business\\obj\\",
+        "outputPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\omare\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4Cy6vRb6NNKmVrOUBeX68IZr8o3Wl4tz+bNvfMymJiPKNB48WM9gzAx5CYmk3pOFWAVPDXB1ljxeuLsDiCT3Ng==",
+  "dgSpecHash": "rHr4YK2j6JkwkUYW7LeV7mMNwX5LueWktcUZYDubZA8WhBK+OAnSbIhNRCQZUcx7P89JschpnX3hGOxl6NNIGg==",
   "success": true,
-  "projectFilePath": "C:\\projects\\lsurvey\\SL.Survey.Api\\SL.Survey.Api.csproj",
+  "projectFilePath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api\\SL.Survey.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\omare\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\omare\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

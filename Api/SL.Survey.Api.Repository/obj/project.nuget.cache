@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "078kLJhxZZcuAx2f2M7ic3nrHqik50WKOS7flOnx/bgq9N/m7v+freuCGnN/v/AyGHcNJXM1or9AFJnRFrLqZQ==",
+  "dgSpecHash": "V7+IDQL57qGGeP76MOpSj15l1D8pTuwKbmOV3VwBpbvFoDQaTtidimKOuJspY/u66xU44CIkylkfbGonbJ9XrQ==",
   "success": true,
-  "projectFilePath": "C:\\projects\\lsurvey\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj",
+  "projectFilePath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Api.Repository\\SL.Survey.Api.Repository.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
