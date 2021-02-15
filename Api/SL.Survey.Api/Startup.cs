@@ -33,6 +33,11 @@ namespace SL.Survey.Api
                     Configuration.GetConnectionString("DefaultConnection")
                 ));
 
+            services.AddControllersWithViews()
+               .AddNewtonsoftJson(options =>
+               options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

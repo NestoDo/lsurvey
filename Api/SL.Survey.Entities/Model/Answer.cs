@@ -14,6 +14,6 @@ namespace SL.Survey.Entities.Model
         public DateTime UpdatedDate { get; set; }
         public DateTime UpdatedBy { get; set; }
 
-        public virtual SurveyQuestionOfferedAnswer SurveyQuestionOfferedAnswerIdNavigation { get; set; }
+        public virtual SurveyQuestionOfferedAnswer SurveyQuestionOfferedAnswer { get; set; }
     }
 }

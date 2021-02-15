@@ -13,20 +13,23 @@ namespace SL.Survey.DataAccess.FluentConfig
         {
             modelBuilder.HasKey(e => e.SurveyQuestionId);
             modelBuilder.ToTable("SurveyQuestion", "lsurvey");
+
+            modelBuilder.Property(e => e.SurveyQuestionId).UseIdentityColumn();
             modelBuilder.Property(e => e.CreatedDate).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedBy).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            modelBuilder.HasOne(d => d.QuestionIdNavigation)
+
+            modelBuilder.HasOne(d => d.Question)
                 .WithMany(p => p.SurveyQuestions)
                 .HasForeignKey(d => d.QuestionId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
             //.HasConstraintName("FK_SurveyQuestion_Question");
-            modelBuilder.HasOne(d => d.QuestionTypeIdNavigation)
+            modelBuilder.HasOne(d => d.QuestionType)
                 .WithMany(p => p.SurveyQuestions)
                 .HasForeignKey(d => d.QuestionTypeId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
             //.HasConstraintName("FK_SurveyQuestion_QuestionType");
-            modelBuilder.HasOne(d => d.SurveyIdNavigation)
+            modelBuilder.HasOne(d => d.Survey)
                 .WithMany(p => p.SurveyQuestions)
                 .HasForeignKey(d => d.SurveyId)
                 .OnDelete(DeleteBehavior.ClientSetNull);

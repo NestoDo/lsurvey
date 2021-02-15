@@ -26,7 +26,7 @@ namespace SL.Survey.DataAccess.FluentConfig
                 .IsUnicode(false);
             modelBuilder.Property(e => e.UpdatedBy).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            modelBuilder.HasOne(d => d.SurveyTypeIdNavigation)
+            modelBuilder.HasOne(d => d.SurveyType)
                 .WithMany(p => p.Surveys)
                 .HasForeignKey(d => d.SurveyTypeId)
                 .OnDelete(DeleteBehavior.ClientSetNull);

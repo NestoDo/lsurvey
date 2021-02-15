@@ -16,14 +16,14 @@ namespace SL.Survey.DataAccess.FluentConfig
             modelBuilder.Property(e => e.CreatedDate).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedBy).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            modelBuilder.HasOne(d => d.OfferedAnswerIdNavigation)
+            modelBuilder.HasOne(d => d.OfferedAnswer)
                 .WithMany(p => p.SurveyQuestionOfferedAnswers)
                 .HasForeignKey(d => d.OfferedAnswerId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
                 //.HasConstraintName("FK_SurveyQuestionOfferedAnswer_OfferedAnswer1");
-            modelBuilder.HasOne(d => d.SurveyQuestionIdNavigation)
-                .WithOne(p => p.SurveyQuestionOfferedAnswersNavigation)
-                .HasForeignKey<SurveyQuestion>(d => d.SurveyQuestionId);
+            modelBuilder.HasOne(d => d.SurveyQuestion)
+                .WithOne(p => p.SurveyQuestionOfferedAnswers)
+                .HasForeignKey<SurveyQuestionOfferedAnswer>(d => d.SurveyQuestionId);
                 //.OnDelete(DeleteBehavior.ClientSetNull)
                 //.HasConstraintName("FK_SurveyQuestionOfferedAnswer_SurveyQuestion1");
         }

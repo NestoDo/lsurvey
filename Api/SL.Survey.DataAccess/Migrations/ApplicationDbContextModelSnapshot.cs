@@ -203,7 +203,11 @@ namespace SL.Survey.DataAccess.Migrations
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
                 {
                     b.Property<int>("SurveyQuestionId")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -272,6 +276,9 @@ namespace SL.Survey.DataAccess.Migrations
 
                     b.HasIndex("OfferedAnswerId");
 
+                    b.HasIndex("SurveyQuestionId")
+                        .IsUnique();
+
                     b.ToTable("SurveyQuestionOfferedAnswer", "lsurvey");
                 });
 
@@ -313,64 +320,64 @@ namespace SL.Survey.DataAccess.Migrations
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Answer", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionOfferedAnswerIdNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionOfferedAnswer")
                         .WithMany("Answers")
                         .HasForeignKey("SurveyQuestionOfferedAnswerId")
                         .IsRequired();
 
-                    b.Navigation("SurveyQuestionOfferedAnswerIdNavigation");
+                    b.Navigation("SurveyQuestionOfferedAnswer");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Survey", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.SurveyType", "SurveyTypeIdNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.SurveyType", "SurveyType")
                         .WithMany("Surveys")
                         .HasForeignKey("SurveyTypeId")
                         .IsRequired();
 
-                    b.Navigation("SurveyTypeIdNavigation");
+                    b.Navigation("SurveyType");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.Question", "QuestionIdNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.Question", "Question")
                         .WithMany("SurveyQuestions")
                         .HasForeignKey("QuestionId")
                         .IsRequired();
 
-                    b.HasOne("SL.Survey.Entities.Model.QuestionType", "QuestionTypeIdNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.QuestionType", "QuestionType")
                         .WithMany("SurveyQuestions")
                         .HasForeignKey("QuestionTypeId")
                         .IsRequired();
 
-                    b.HasOne("SL.Survey.Entities.Model.Survey", "SurveyIdNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.Survey", "Survey")
                         .WithMany("SurveyQuestions")
                         .HasForeignKey("SurveyId")
                         .IsRequired();
 
-                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionOfferedAnswersNavigation")
-                        .WithOne("SurveyQuestionIdNavigation")
-                        .HasForeignKey("SL.Survey.Entities.Model.SurveyQuestion", "SurveyQuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Question");
 
-                    b.Navigation("QuestionIdNavigation");
+                    b.Navigation("QuestionType");
 
-                    b.Navigation("QuestionTypeIdNavigation");
-
-                    b.Navigation("SurveyIdNavigation");
-
-                    b.Navigation("SurveyQuestionOfferedAnswersNavigation");
+                    b.Navigation("Survey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.OfferedAnswer", "OfferedAnswerIdNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.OfferedAnswer", "OfferedAnswer")
                         .WithMany("SurveyQuestionOfferedAnswers")
                         .HasForeignKey("OfferedAnswerId")
                         .IsRequired();
 
-                    b.Navigation("OfferedAnswerIdNavigation");
+                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestion", "SurveyQuestion")
+                        .WithOne("SurveyQuestionOfferedAnswers")
+                        .HasForeignKey("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("OfferedAnswer");
+
+                    b.Navigation("SurveyQuestion");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.OfferedAnswer", b =>
@@ -393,11 +400,14 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Navigation("SurveyQuestions");
                 });
 
+            modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
+                {
+                    b.Navigation("SurveyQuestionOfferedAnswers");
+                });
+
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", b =>
                 {
                     b.Navigation("Answers");
-
-                    b.Navigation("SurveyQuestionIdNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyType", b =>

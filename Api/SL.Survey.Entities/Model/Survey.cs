@@ -23,7 +23,7 @@ namespace SL.Survey.Entities.Model
         public DateTime UpdatedDate { get; set; }
         public DateTime UpdatedBy { get; set; }
 
-        public virtual SurveyType SurveyTypeIdNavigation { get; set; }
+        public virtual SurveyType SurveyType { get; set; }
         public virtual ICollection<SurveyQuestion> SurveyQuestions { get; set; }
     }
 }

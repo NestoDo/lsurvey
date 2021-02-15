@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SL.Survey.DataAccess.Migrations
 {
-    public partial class DBSchema_created : Migration
+    public partial class databaseCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -87,32 +87,6 @@ namespace SL.Survey.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "SurveyQuestionOfferedAnswer",
-                schema: "lsurvey",
-                columns: table => new
-                {
-                    SurveyQuestionOfferedAnswerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SurveyQuestionId = table.Column<int>(type: "int", nullable: false),
-                    OfferedAnswerId = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    UpdatedBy = table.Column<DateTime>(type: "datetime", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SurveyQuestionOfferedAnswer", x => x.SurveyQuestionOfferedAnswerId);
-                    table.ForeignKey(
-                        name: "FK_SurveyQuestionOfferedAnswer_OfferedAnswer_OfferedAnswerId",
-                        column: x => x.OfferedAnswerId,
-                        principalSchema: "lsurvey",
-                        principalTable: "OfferedAnswer",
-                        principalColumn: "OfferedAnswerId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Survey",
                 schema: "lsurvey",
                 columns: table => new
@@ -142,36 +116,12 @@ namespace SL.Survey.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Answer",
-                schema: "lsurvey",
-                columns: table => new
-                {
-                    AnswerId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SurveyQuestionOfferedAnswerId = table.Column<int>(type: "int", nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    CreatedBy = table.Column<int>(type: "int", nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
-                    UpdatedBy = table.Column<DateTime>(type: "datetime", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Answer", x => x.AnswerId);
-                    table.ForeignKey(
-                        name: "FK_Answer_SurveyQuestionOfferedAnswer_SurveyQuestionOfferedAnswerId",
-                        column: x => x.SurveyQuestionOfferedAnswerId,
-                        principalSchema: "lsurvey",
-                        principalTable: "SurveyQuestionOfferedAnswer",
-                        principalColumn: "SurveyQuestionOfferedAnswerId",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "SurveyQuestion",
                 schema: "lsurvey",
                 columns: table => new
                 {
-                    SurveyQuestionId = table.Column<int>(type: "int", nullable: false),
+                    SurveyQuestionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     SurveyId = table.Column<int>(type: "int", nullable: false),
                     QuestionId = table.Column<int>(type: "int", nullable: false),
                     SortOrder = table.Column<int>(type: "int", nullable: false),
@@ -206,13 +156,64 @@ namespace SL.Survey.DataAccess.Migrations
                         principalTable: "Survey",
                         principalColumn: "SurveyId",
                         onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SurveyQuestionOfferedAnswer",
+                schema: "lsurvey",
+                columns: table => new
+                {
+                    SurveyQuestionOfferedAnswerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SurveyQuestionId = table.Column<int>(type: "int", nullable: false),
+                    OfferedAnswerId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedBy = table.Column<DateTime>(type: "datetime", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SurveyQuestionOfferedAnswer", x => x.SurveyQuestionOfferedAnswerId);
                     table.ForeignKey(
-                        name: "FK_SurveyQuestion_SurveyQuestionOfferedAnswer_SurveyQuestionId",
+                        name: "FK_SurveyQuestionOfferedAnswer_OfferedAnswer_OfferedAnswerId",
+                        column: x => x.OfferedAnswerId,
+                        principalSchema: "lsurvey",
+                        principalTable: "OfferedAnswer",
+                        principalColumn: "OfferedAnswerId",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_SurveyQuestionOfferedAnswer_SurveyQuestion_SurveyQuestionId",
                         column: x => x.SurveyQuestionId,
+                        principalSchema: "lsurvey",
+                        principalTable: "SurveyQuestion",
+                        principalColumn: "SurveyQuestionId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Answer",
+                schema: "lsurvey",
+                columns: table => new
+                {
+                    AnswerId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SurveyQuestionOfferedAnswerId = table.Column<int>(type: "int", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    CreatedBy = table.Column<int>(type: "int", nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    UpdatedBy = table.Column<DateTime>(type: "datetime", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Answer", x => x.AnswerId);
+                    table.ForeignKey(
+                        name: "FK_Answer_SurveyQuestionOfferedAnswer_SurveyQuestionOfferedAnswerId",
+                        column: x => x.SurveyQuestionOfferedAnswerId,
                         principalSchema: "lsurvey",
                         principalTable: "SurveyQuestionOfferedAnswer",
                         principalColumn: "SurveyQuestionOfferedAnswerId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -250,12 +251,27 @@ namespace SL.Survey.DataAccess.Migrations
                 schema: "lsurvey",
                 table: "SurveyQuestionOfferedAnswer",
                 column: "OfferedAnswerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SurveyQuestionOfferedAnswer_SurveyQuestionId",
+                schema: "lsurvey",
+                table: "SurveyQuestionOfferedAnswer",
+                column: "SurveyQuestionId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Answer",
+                schema: "lsurvey");
+
+            migrationBuilder.DropTable(
+                name: "SurveyQuestionOfferedAnswer",
+                schema: "lsurvey");
+
+            migrationBuilder.DropTable(
+                name: "OfferedAnswer",
                 schema: "lsurvey");
 
             migrationBuilder.DropTable(
@@ -275,15 +291,7 @@ namespace SL.Survey.DataAccess.Migrations
                 schema: "lsurvey");
 
             migrationBuilder.DropTable(
-                name: "SurveyQuestionOfferedAnswer",
-                schema: "lsurvey");
-
-            migrationBuilder.DropTable(
                 name: "SurveyType",
-                schema: "lsurvey");
-
-            migrationBuilder.DropTable(
-                name: "OfferedAnswer",
                 schema: "lsurvey");
         }
     }
