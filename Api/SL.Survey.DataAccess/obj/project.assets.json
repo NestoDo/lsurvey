@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\lsurvey\\Api\\SL.Survey.Data\\SL.Survey.Data.csproj",
-      "projectName": "SL.Survey.Data",
-      "projectPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Data\\SL.Survey.Data.csproj",
+      "projectUniqueName": "C:\\projects\\lsurvey\\Api\\SL.Survey.DataAccess\\SL.Survey.DataAccess.csproj",
+      "projectName": "SL.Survey.DataAccess",
+      "projectPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.DataAccess\\SL.Survey.DataAccess.csproj",
       "packagesPath": "C:\\Users\\omare\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.Data\\obj\\",
+      "outputPath": "C:\\projects\\lsurvey\\Api\\SL.Survey.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\omare\\AppData\\Roaming\\NuGet\\NuGet.Config",
