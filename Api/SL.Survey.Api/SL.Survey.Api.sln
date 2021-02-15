@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SL.Survey.Api.Business", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SL.Survey.Api.Repository", "..\SL.Survey.Api.Repository\SL.Survey.Api.Repository.csproj", "{D307D25F-2E41-4F48-999E-C3860378115D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SL.Survey.Api.Entities", "..\SL.Survey.Api.Model\SL.Survey.Api.Entities.csproj", "{471BDA8C-EA1E-4386-A357-E0422222E055}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SL.Survey.Api.Entities", "..\SL.Survey.Api.Model\SL.Survey.Api.Entities.csproj", "{471BDA8C-EA1E-4386-A357-E0422222E055}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SL.Survey.Data", "..\SL.Survey.Data\SL.Survey.Data.csproj", "{13964CEE-A1BE-4E89-BAD7-360595177196}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{471BDA8C-EA1E-4386-A357-E0422222E055}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{471BDA8C-EA1E-4386-A357-E0422222E055}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{471BDA8C-EA1E-4386-A357-E0422222E055}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13964CEE-A1BE-4E89-BAD7-360595177196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13964CEE-A1BE-4E89-BAD7-360595177196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13964CEE-A1BE-4E89-BAD7-360595177196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13964CEE-A1BE-4E89-BAD7-360595177196}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
