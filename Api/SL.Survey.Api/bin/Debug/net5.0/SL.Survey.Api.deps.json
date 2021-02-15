@@ -1350,13 +1350,22 @@
       "SL.Survey.DataAccess/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
+          "SL.Survey.Entities": "1.0.0"
         },
         "runtime": {
           "SL.Survey.DataAccess.dll": {}
         },
         "compile": {
           "SL.Survey.DataAccess.dll": {}
+        }
+      },
+      "SL.Survey.Entities/1.0.0": {
+        "runtime": {
+          "SL.Survey.Entities.dll": {}
+        },
+        "compile": {
+          "SL.Survey.Entities.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3754,6 +3763,11 @@
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
     },
     "SL.Survey.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SL.Survey.Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

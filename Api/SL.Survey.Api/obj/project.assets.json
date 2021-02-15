@@ -1561,13 +1561,24 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.3",
+          "SL.Survey.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/SL.Survey.DataAccess.dll": {}
         },
         "runtime": {
           "bin/placeholder/SL.Survey.DataAccess.dll": {}
+        }
+      },
+      "SL.Survey.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/SL.Survey.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SL.Survey.Entities.dll": {}
         }
       }
     }
@@ -5893,6 +5904,11 @@
       "type": "project",
       "path": "../SL.Survey.DataAccess/SL.Survey.DataAccess.csproj",
       "msbuildProject": "../SL.Survey.DataAccess/SL.Survey.DataAccess.csproj"
+    },
+    "SL.Survey.Entities/1.0.0": {
+      "type": "project",
+      "path": "../SL.Survey.Entities/SL.Survey.Entities.csproj",
+      "msbuildProject": "../SL.Survey.Entities/SL.Survey.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
