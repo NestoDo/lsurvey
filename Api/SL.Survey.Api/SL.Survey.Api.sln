@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SL.Survey.Api", "SL.Survey.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SL.Survey.Entities", "..\SL.Survey.Entities\SL.Survey.Entities.csproj", "{F9E3903C-DAC6-4BB8-B434-0A57F8E52B48}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SL.Survey.Business", "..\SL.Survey.Business\SL.Survey.Business.csproj", "{2F8E8854-4BAF-4DA9-9164-B4E955E72DD8}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SL.Survey.DataAccess", "..\SL.Survey.DataAccess\SL.Survey.DataAccess.csproj", "{046630C9-DE6A-45AE-A414-097E49779E0D}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{F9E3903C-DAC6-4BB8-B434-0A57F8E52B48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9E3903C-DAC6-4BB8-B434-0A57F8E52B48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9E3903C-DAC6-4BB8-B434-0A57F8E52B48}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F8E8854-4BAF-4DA9-9164-B4E955E72DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F8E8854-4BAF-4DA9-9164-B4E955E72DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F8E8854-4BAF-4DA9-9164-B4E955E72DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F8E8854-4BAF-4DA9-9164-B4E955E72DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{046630C9-DE6A-45AE-A414-097E49779E0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{046630C9-DE6A-45AE-A414-097E49779E0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{046630C9-DE6A-45AE-A414-097E49779E0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
