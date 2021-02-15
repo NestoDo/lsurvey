@@ -203,9 +203,7 @@ namespace SL.Survey.DataAccess.Migrations
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
                 {
                     b.Property<int>("SurveyQuestionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -274,8 +272,6 @@ namespace SL.Survey.DataAccess.Migrations
 
                     b.HasIndex("OfferedAnswerId");
 
-                    b.HasIndex("SurveyQuestionId");
-
                     b.ToTable("SurveyQuestionOfferedAnswer", "lsurvey");
                 });
 
@@ -320,7 +316,6 @@ namespace SL.Survey.DataAccess.Migrations
                     b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionOfferedAnswerIdNavigation")
                         .WithMany("Answers")
                         .HasForeignKey("SurveyQuestionOfferedAnswerId")
-                        .HasConstraintName("FK_Answer_SurveyQuestionOfferedAnswer")
                         .IsRequired();
 
                     b.Navigation("SurveyQuestionOfferedAnswerIdNavigation");
@@ -331,7 +326,6 @@ namespace SL.Survey.DataAccess.Migrations
                     b.HasOne("SL.Survey.Entities.Model.SurveyType", "SurveyTypeIdNavigation")
                         .WithMany("Surveys")
                         .HasForeignKey("SurveyTypeId")
-                        .HasConstraintName("FK_Survey_SurveyType")
                         .IsRequired();
 
                     b.Navigation("SurveyTypeIdNavigation");
@@ -339,29 +333,34 @@ namespace SL.Survey.DataAccess.Migrations
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.Question", "QuestionNavigationId")
+                    b.HasOne("SL.Survey.Entities.Model.Question", "QuestionIdNavigation")
                         .WithMany("SurveyQuestions")
                         .HasForeignKey("QuestionId")
-                        .HasConstraintName("FK_SurveyQuestion_Question")
                         .IsRequired();
 
                     b.HasOne("SL.Survey.Entities.Model.QuestionType", "QuestionTypeIdNavigation")
                         .WithMany("SurveyQuestions")
                         .HasForeignKey("QuestionTypeId")
-                        .HasConstraintName("FK_SurveyQuestion_QuestionType")
                         .IsRequired();
 
                     b.HasOne("SL.Survey.Entities.Model.Survey", "SurveyIdNavigation")
                         .WithMany("SurveyQuestions")
                         .HasForeignKey("SurveyId")
-                        .HasConstraintName("FK_SurveyQuestion_Survey")
                         .IsRequired();
 
-                    b.Navigation("QuestionNavigationId");
+                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionOfferedAnswersNavigation")
+                        .WithOne("SurveyQuestionIdNavigation")
+                        .HasForeignKey("SL.Survey.Entities.Model.SurveyQuestion", "SurveyQuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("QuestionIdNavigation");
 
                     b.Navigation("QuestionTypeIdNavigation");
 
                     b.Navigation("SurveyIdNavigation");
+
+                    b.Navigation("SurveyQuestionOfferedAnswersNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", b =>
@@ -369,18 +368,9 @@ namespace SL.Survey.DataAccess.Migrations
                     b.HasOne("SL.Survey.Entities.Model.OfferedAnswer", "OfferedAnswerIdNavigation")
                         .WithMany("SurveyQuestionOfferedAnswers")
                         .HasForeignKey("OfferedAnswerId")
-                        .HasConstraintName("FK_SurveyQuestionOfferedAnswer_OfferedAnswer1")
-                        .IsRequired();
-
-                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestion", "SurveyQuestionIdNavigation")
-                        .WithMany("SurveyQuestionOfferedAnswers")
-                        .HasForeignKey("SurveyQuestionId")
-                        .HasConstraintName("FK_SurveyQuestionOfferedAnswer_SurveyQuestion1")
                         .IsRequired();
 
                     b.Navigation("OfferedAnswerIdNavigation");
-
-                    b.Navigation("SurveyQuestionIdNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.OfferedAnswer", b =>
@@ -403,14 +393,11 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Navigation("SurveyQuestions");
                 });
 
-            modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
-                {
-                    b.Navigation("SurveyQuestionOfferedAnswers");
-                });
-
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", b =>
                 {
                     b.Navigation("Answers");
+
+                    b.Navigation("SurveyQuestionIdNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyType", b =>

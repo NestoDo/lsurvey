@@ -10,8 +10,8 @@ using SL.Survey.DataAccess.Data;
 namespace SL.Survey.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210215032127_Template_CreatingTablesInDB")]
-    partial class Template_CreatingTablesInDB
+    [Migration("20210215191012_DBSchema_created")]
+    partial class DBSchema_created
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace SL.Survey.DataAccess.Migrations
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Answer", b =>
                 {
-                    b.Property<int>("IdAnswer")
+                    b.Property<int>("AnswerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -34,7 +34,7 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("IdSurveyQuestionOfferedAnswer")
+                    b.Property<int>("SurveyQuestionOfferedAnswerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedBy")
@@ -43,16 +43,16 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdAnswer");
+                    b.HasKey("AnswerId");
 
-                    b.HasIndex("IdSurveyQuestionOfferedAnswer");
+                    b.HasIndex("SurveyQuestionOfferedAnswerId");
 
                     b.ToTable("Answer", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.OfferedAnswer", b =>
                 {
-                    b.Property<int>("IdOfferedAnswer")
+                    b.Property<int>("OfferedAnswerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -74,14 +74,14 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdOfferedAnswer");
+                    b.HasKey("OfferedAnswerId");
 
                     b.ToTable("OfferedAnswer", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Question", b =>
                 {
-                    b.Property<int>("IdQuestion")
+                    b.Property<int>("QuestionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -113,14 +113,14 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdQuestion");
+                    b.HasKey("QuestionId");
 
                     b.ToTable("Question", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.QuestionType", b =>
                 {
-                    b.Property<int>("IdQuestionType")
+                    b.Property<int>("QuestionTypeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -149,14 +149,14 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdQuestionType");
+                    b.HasKey("QuestionTypeId");
 
                     b.ToTable("QuestionType", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Survey", b =>
                 {
-                    b.Property<int>("IdSurvey")
+                    b.Property<int>("SurveyId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -166,9 +166,6 @@ namespace SL.Survey.DataAccess.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime");
-
-                    b.Property<int>("IdSurveyType")
-                        .HasColumnType("int");
 
                     b.Property<string>("Instructions")
                         .IsRequired()
@@ -189,25 +186,26 @@ namespace SL.Survey.DataAccess.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
+                    b.Property<int>("SurveyTypeId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdatedBy")
                         .HasColumnType("datetime");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdSurvey");
+                    b.HasKey("SurveyId");
 
-                    b.HasIndex("IdSurveyType");
+                    b.HasIndex("SurveyTypeId");
 
                     b.ToTable("Survey", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
                 {
-                    b.Property<int>("IdSurveyQuestion")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("SurveyQuestionId")
+                        .HasColumnType("int");
 
                     b.Property<int>("CreatedBy")
                         .HasColumnType("int");
@@ -215,19 +213,19 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("IdQuestion")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdQuestionType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdSurvey")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionTypeId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SurveyId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedBy")
@@ -236,20 +234,20 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdSurveyQuestion");
+                    b.HasKey("SurveyQuestionId");
 
-                    b.HasIndex("IdQuestion");
+                    b.HasIndex("QuestionId");
 
-                    b.HasIndex("IdQuestionType");
+                    b.HasIndex("QuestionTypeId");
 
-                    b.HasIndex("IdSurvey");
+                    b.HasIndex("SurveyId");
 
                     b.ToTable("SurveyQuestion", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", b =>
                 {
-                    b.Property<int>("IdSurveyQuestionOfferedAnswer")
+                    b.Property<int>("SurveyQuestionOfferedAnswerId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -260,10 +258,10 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime");
 
-                    b.Property<int>("IdOfferedAnswer")
+                    b.Property<int>("OfferedAnswerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdSurveyQuestion")
+                    b.Property<int>("SurveyQuestionId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedBy")
@@ -272,18 +270,16 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdSurveyQuestionOfferedAnswer");
+                    b.HasKey("SurveyQuestionOfferedAnswerId");
 
-                    b.HasIndex("IdOfferedAnswer");
-
-                    b.HasIndex("IdSurveyQuestion");
+                    b.HasIndex("OfferedAnswerId");
 
                     b.ToTable("SurveyQuestionOfferedAnswer", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyType", b =>
                 {
-                    b.Property<int>("IdSurveyType")
+                    b.Property<int>("SurveyTypeId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -312,77 +308,71 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime");
 
-                    b.HasKey("IdSurveyType");
+                    b.HasKey("SurveyTypeId");
 
                     b.ToTable("SurveyType", "lsurvey");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Answer", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "IdSurveyQuestionOfferedAnswerNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionOfferedAnswerIdNavigation")
                         .WithMany("Answers")
-                        .HasForeignKey("IdSurveyQuestionOfferedAnswer")
-                        .HasConstraintName("FK_Answer_SurveyQuestionOfferedAnswer")
+                        .HasForeignKey("SurveyQuestionOfferedAnswerId")
                         .IsRequired();
 
-                    b.Navigation("IdSurveyQuestionOfferedAnswerNavigation");
+                    b.Navigation("SurveyQuestionOfferedAnswerIdNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Survey", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.SurveyType", "IdSurveyTypeNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.SurveyType", "SurveyTypeIdNavigation")
                         .WithMany("Surveys")
-                        .HasForeignKey("IdSurveyType")
-                        .HasConstraintName("FK_Survey_SurveyType")
+                        .HasForeignKey("SurveyTypeId")
                         .IsRequired();
 
-                    b.Navigation("IdSurveyTypeNavigation");
+                    b.Navigation("SurveyTypeIdNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.Question", "IdQuestionNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.Question", "QuestionIdNavigation")
                         .WithMany("SurveyQuestions")
-                        .HasForeignKey("IdQuestion")
-                        .HasConstraintName("FK_SurveyQuestion_Question")
+                        .HasForeignKey("QuestionId")
                         .IsRequired();
 
-                    b.HasOne("SL.Survey.Entities.Model.QuestionType", "IdQuestionTypeNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.QuestionType", "QuestionTypeIdNavigation")
                         .WithMany("SurveyQuestions")
-                        .HasForeignKey("IdQuestionType")
-                        .HasConstraintName("FK_SurveyQuestion_QuestionType")
+                        .HasForeignKey("QuestionTypeId")
                         .IsRequired();
 
-                    b.HasOne("SL.Survey.Entities.Model.Survey", "IdSurveyNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.Survey", "SurveyIdNavigation")
                         .WithMany("SurveyQuestions")
-                        .HasForeignKey("IdSurvey")
-                        .HasConstraintName("FK_SurveyQuestion_Survey")
+                        .HasForeignKey("SurveyId")
                         .IsRequired();
 
-                    b.Navigation("IdQuestionNavigation");
+                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", "SurveyQuestionOfferedAnswersNavigation")
+                        .WithOne("SurveyQuestionIdNavigation")
+                        .HasForeignKey("SL.Survey.Entities.Model.SurveyQuestion", "SurveyQuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("IdQuestionTypeNavigation");
+                    b.Navigation("QuestionIdNavigation");
 
-                    b.Navigation("IdSurveyNavigation");
+                    b.Navigation("QuestionTypeIdNavigation");
+
+                    b.Navigation("SurveyIdNavigation");
+
+                    b.Navigation("SurveyQuestionOfferedAnswersNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", b =>
                 {
-                    b.HasOne("SL.Survey.Entities.Model.OfferedAnswer", "IdOfferedAnswerNavigation")
+                    b.HasOne("SL.Survey.Entities.Model.OfferedAnswer", "OfferedAnswerIdNavigation")
                         .WithMany("SurveyQuestionOfferedAnswers")
-                        .HasForeignKey("IdOfferedAnswer")
-                        .HasConstraintName("FK_SurveyQuestionOfferedAnswer_OfferedAnswer1")
+                        .HasForeignKey("OfferedAnswerId")
                         .IsRequired();
 
-                    b.HasOne("SL.Survey.Entities.Model.SurveyQuestion", "IdSurveyQuestionNavigation")
-                        .WithMany("SurveyQuestionOfferedAnswers")
-                        .HasForeignKey("IdSurveyQuestion")
-                        .HasConstraintName("FK_SurveyQuestionOfferedAnswer_SurveyQuestion1")
-                        .IsRequired();
-
-                    b.Navigation("IdOfferedAnswerNavigation");
-
-                    b.Navigation("IdSurveyQuestionNavigation");
+                    b.Navigation("OfferedAnswerIdNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.OfferedAnswer", b =>
@@ -405,14 +395,11 @@ namespace SL.Survey.DataAccess.Migrations
                     b.Navigation("SurveyQuestions");
                 });
 
-            modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestion", b =>
-                {
-                    b.Navigation("SurveyQuestionOfferedAnswers");
-                });
-
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyQuestionOfferedAnswer", b =>
                 {
                     b.Navigation("Answers");
+
+                    b.Navigation("SurveyQuestionIdNavigation");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.SurveyType", b =>

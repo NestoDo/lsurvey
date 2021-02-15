@@ -29,8 +29,8 @@ namespace SL.Survey.DataAccess.FluentConfig
             modelBuilder.HasOne(d => d.SurveyTypeIdNavigation)
                 .WithMany(p => p.Surveys)
                 .HasForeignKey(d => d.SurveyTypeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Survey_SurveyType");
+                .OnDelete(DeleteBehavior.ClientSetNull);
+                //.HasConstraintName("FK_Survey_SurveyType");
         }
     }
 }

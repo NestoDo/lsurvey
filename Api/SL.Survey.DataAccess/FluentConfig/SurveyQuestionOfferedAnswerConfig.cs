@@ -19,13 +19,13 @@ namespace SL.Survey.DataAccess.FluentConfig
             modelBuilder.HasOne(d => d.OfferedAnswerIdNavigation)
                 .WithMany(p => p.SurveyQuestionOfferedAnswers)
                 .HasForeignKey(d => d.OfferedAnswerId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_SurveyQuestionOfferedAnswer_OfferedAnswer1");
+                .OnDelete(DeleteBehavior.ClientSetNull);
+                //.HasConstraintName("FK_SurveyQuestionOfferedAnswer_OfferedAnswer1");
             modelBuilder.HasOne(d => d.SurveyQuestionIdNavigation)
-                .WithMany(p => p.SurveyQuestionOfferedAnswers)
-                .HasForeignKey(d => d.SurveyQuestionId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_SurveyQuestionOfferedAnswer_SurveyQuestion1");
+                .WithOne(p => p.SurveyQuestionOfferedAnswersNavigation)
+                .HasForeignKey<SurveyQuestion>(d => d.SurveyQuestionId);
+                //.OnDelete(DeleteBehavior.ClientSetNull)
+                //.HasConstraintName("FK_SurveyQuestionOfferedAnswer_SurveyQuestion1");
         }
     }
 }
