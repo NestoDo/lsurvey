@@ -11,19 +11,19 @@ namespace SL.Survey.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<SurveyQuestionOfferedAnswer> modelBuilder)
         {
-            modelBuilder.HasKey(e => e.IdSurveyQuestionOfferedAnswer);
+            modelBuilder.HasKey(e => e.SurveyQuestionOfferedAnswerId);
             modelBuilder.ToTable("SurveyQuestionOfferedAnswer", "lsurvey");
             modelBuilder.Property(e => e.CreatedDate).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedBy).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            modelBuilder.HasOne(d => d.IdOfferedAnswerNavigation)
+            modelBuilder.HasOne(d => d.OfferedAnswerIdNavigation)
                 .WithMany(p => p.SurveyQuestionOfferedAnswers)
-                .HasForeignKey(d => d.IdOfferedAnswer)
+                .HasForeignKey(d => d.OfferedAnswerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SurveyQuestionOfferedAnswer_OfferedAnswer1");
-            modelBuilder.HasOne(d => d.IdSurveyQuestionNavigation)
+            modelBuilder.HasOne(d => d.SurveyQuestionIdNavigation)
                 .WithMany(p => p.SurveyQuestionOfferedAnswers)
-                .HasForeignKey(d => d.IdSurveyQuestion)
+                .HasForeignKey(d => d.SurveyQuestionId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SurveyQuestionOfferedAnswer_SurveyQuestion1");
         }

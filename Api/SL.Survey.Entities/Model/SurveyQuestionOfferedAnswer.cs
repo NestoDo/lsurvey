@@ -12,16 +12,16 @@ namespace SL.Survey.Entities.Model
             Answers = new HashSet<Answer>();
         }
 
-        public int IdSurveyQuestionOfferedAnswer { get; set; }
-        public int IdSurveyQuestion { get; set; }
-        public int IdOfferedAnswer { get; set; }
+        public int SurveyQuestionOfferedAnswerId { get; set; }
+        public int SurveyQuestionId { get; set; }
+        public int OfferedAnswerId { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public DateTime UpdatedBy { get; set; }
 
-        public virtual OfferedAnswer IdOfferedAnswerNavigation { get; set; }
-        public virtual SurveyQuestion IdSurveyQuestionNavigation { get; set; }
+        public virtual OfferedAnswer OfferedAnswerIdNavigation { get; set; }
+        public virtual SurveyQuestion SurveyQuestionIdNavigation { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
     }
 }

@@ -11,24 +11,24 @@ namespace SL.Survey.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<SurveyQuestion> modelBuilder)
         {
-            modelBuilder.HasKey(e => e.IdSurveyQuestion);
+            modelBuilder.HasKey(e => e.SurveyQuestionId);
             modelBuilder.ToTable("SurveyQuestion", "lsurvey");
             modelBuilder.Property(e => e.CreatedDate).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedBy).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            modelBuilder.HasOne(d => d.IdQuestionNavigation)
+            modelBuilder.HasOne(d => d.QuestionNavigationId)
                 .WithMany(p => p.SurveyQuestions)
-                .HasForeignKey(d => d.IdQuestion)
+                .HasForeignKey(d => d.QuestionId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SurveyQuestion_Question");
-            modelBuilder.HasOne(d => d.IdQuestionTypeNavigation)
+            modelBuilder.HasOne(d => d.QuestionTypeIdNavigation)
                 .WithMany(p => p.SurveyQuestions)
-                .HasForeignKey(d => d.IdQuestionType)
+                .HasForeignKey(d => d.QuestionTypeId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SurveyQuestion_QuestionType");
-            modelBuilder.HasOne(d => d.IdSurveyNavigation)
+            modelBuilder.HasOne(d => d.SurveyIdNavigation)
                 .WithMany(p => p.SurveyQuestions)
-                .HasForeignKey(d => d.IdSurvey)
+                .HasForeignKey(d => d.SurveyId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SurveyQuestion_Survey");            
         }
