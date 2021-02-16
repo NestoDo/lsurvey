@@ -1,0 +1,15 @@
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\bin\Debug\netcoreapp3.1\SL.Survey.DataAccess.deps.json
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\bin\Debug\netcoreapp3.1\SL.Survey.DataAccess.runtimeconfig.json
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\bin\Debug\netcoreapp3.1\SL.Survey.DataAccess.runtimeconfig.dev.json
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\bin\Debug\netcoreapp3.1\SL.Survey.DataAccess.dll
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\bin\Debug\netcoreapp3.1\SL.Survey.DataAccess.pdb
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\bin\Debug\netcoreapp3.1\SL.Survey.Entities.dll
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\bin\Debug\netcoreapp3.1\SL.Survey.Entities.pdb
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.csprojAssemblyReference.cache
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.AssemblyInfoInputs.cache
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.AssemblyInfo.cs
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.csproj.CoreCompileInputs.cache
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.csproj.CopyComplete
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.dll
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.pdb
+C:\projects\lsurvey\Api\SL.Survey.DataAccess\obj\Debug\netcoreapp3.1\SL.Survey.DataAccess.genruntimeconfig.cache

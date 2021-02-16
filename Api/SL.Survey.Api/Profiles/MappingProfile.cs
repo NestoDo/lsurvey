@@ -25,7 +25,7 @@ namespace SL.Survey.Api.Profiles
             CreateMap<SurveyDto, SL.Survey.Entities.Model.Survey>();
 
             CreateMap<SurveyQuestion, SurveyQuestionDto>();
-            CreateMap<SurveyQuestionDto, SurveyQuestion>();                       
+            CreateMap<SurveyQuestionDto, SurveyQuestion>();
 
             CreateMap<SurveyQuestionOfferedAnswer, SurveyQuestionOfferedAnswerDto>();
             CreateMap<SurveyQuestionOfferedAnswer, SurveyQuestionOfferedAnswerDto>();
