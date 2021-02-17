@@ -68,3 +68,4 @@ C:\projects\lsurvey\Api\SL.Survey.Api\obj\Debug\net5.0\SL.Survey.Api.dll
 C:\projects\lsurvey\Api\SL.Survey.Api\obj\Debug\net5.0\ref\SL.Survey.Api.dll
 C:\projects\lsurvey\Api\SL.Survey.Api\obj\Debug\net5.0\SL.Survey.Api.pdb
 C:\projects\lsurvey\Api\SL.Survey.Api\obj\Debug\net5.0\SL.Survey.Api.genruntimeconfig.cache
+C:\projects\lsurvey\Api\SL.Survey.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
