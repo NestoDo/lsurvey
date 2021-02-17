@@ -33,7 +33,7 @@ namespace SL.Survey.Api.Controllers
         public async Task<IEnumerable<SurveyDto>> GetSurveys()
         {
             var surveyQuestion = await _db.Surveys.ToListAsync();                
-
+            
             var surveyQuestionDto = _mapper.Map<IEnumerable<SurveyDto>>(surveyQuestion);
 
             _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {surveyQuestion.Count()} items");
