@@ -31,31 +31,38 @@ namespace SL.Survey.Api.Controllers.V1
 
         // GET /survey
         [HttpGet(ApiRoutes.Survey.GetAll)]
-        public async Task<IEnumerable<SurveyDto>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var surveyQuestion = await _db.Surveys.ToListAsync();                
-            
-            var surveyQuestionDto = _mapper.Map<IEnumerable<SurveyDto>>(surveyQuestion);
+            var survey = await _db.Surveys.ToListAsync();
 
-            _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {surveyQuestion.Count()} items");
+            if (survey.Count == 0)
+                return NotFound();
 
-            return surveyQuestionDto;
+            var surveyDto = _mapper.Map<IEnumerable<SurveyDto>>(survey);
+
+            _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {survey.Count()} items");
+
+            return Ok(surveyDto);
         }
 
         // GET /survey/{id}
         [HttpGet(ApiRoutes.Survey.GetQuestionsAnswers)]
-        public async Task<IEnumerable<QuestionDto>> GetQuestionsAnswers(int id)
+        public async Task<IActionResult> GetQuestionsAnswers(int id)
         {
-            var surveyQuestion = await _db.Questions
-                .Include(u => u.SurveyQuestions)
-                .ThenInclude(u => u.SurveyQuestionOfferedAnswers)
-                .ThenInclude(u => u.OfferedAnswer).ToListAsync();
+            var question =  await _db.Questions.Where(x => x.QuestionId == id).ToListAsync();
+            //    .Include(u => u.SurveyQuestions)
+            //    .ThenInclude(u => u.SurveyQuestionOfferedAnswers)
+            //    .ThenInclude(u => u.OfferedAnswer).ToListAsync();
 
-            var questionDto = _mapper.Map<IEnumerable<QuestionDto>>(surveyQuestion);
 
-            _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {surveyQuestion.Count()} items");
+            if (question.Count == 0)
+                return NotFound();
 
-            return questionDto;
+            var questionDto = _mapper.Map<IEnumerable<QuestionDto>>(question);
+
+            _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {question.Count()} items");
+
+            return Ok(questionDto);
         }
     }
 }
