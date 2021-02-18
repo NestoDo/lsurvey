@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SL.Survey.Api.Installers;
 using SL.Survey.Api.Profiles;
 using SL.Survey.Api.Settings;
 using SL.Survey.DataAccess.Data;
@@ -34,10 +35,10 @@ namespace SL.Survey.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")
-                ));
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")
+            //    ));
 
             services.AddControllersWithViews()
                .AddNewtonsoftJson(options =>
@@ -46,73 +47,75 @@ namespace SL.Survey.Api
 
             services.AddControllers();
 
-            var jwsSettings = new JwtSettings();
-            Configuration.Bind(key: nameof(jwsSettings), jwsSettings);
-            services.AddSingleton(jwsSettings);
+            //var jwsSettings = new JwtSettings();
+            //Configuration.Bind(key: nameof(jwsSettings), jwsSettings);
+            //services.AddSingleton(jwsSettings);
 
-            services.AddAuthentication(configureOptions: x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(x =>
-            {
-                x.SaveToken = true;
-                x.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwsSettings.Secret)),
-                    ValidateIssuer = false,
-                    ValidateAudience = false,
-                    RequireExpirationTime = false,
-                    ValidateLifetime = true
-                };
-            });
+            //services.AddAuthentication(configureOptions: x =>
+            //{
+            //    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //.AddJwtBearer(x =>
+            //{
+            //    x.SaveToken = true;
+            //    x.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwsSettings.Secret)),
+            //        ValidateIssuer = false,
+            //        ValidateAudience = false,
+            //        RequireExpirationTime = false,
+            //        ValidateLifetime = true
+            //    };
+            //});
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "SL.Survey.Api", Version = "v1" });
+            //services.AddSwaggerGen(c =>
+            //{
+            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SL.Survey.Api", Version = "v1" });
 
-                c.AddSecurityDefinition(name: "Bearer", new OpenApiSecurityScheme
-                {
-                    Description = "JWT Authorization header using the bearer scheme",
-                    Name = "Authorization",
-                    In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey,
-                    Scheme = "Bearer"
-                });
+            //    c.AddSecurityDefinition(name: "Bearer", new OpenApiSecurityScheme
+            //    {
+            //        Description = "JWT Authorization header using the bearer scheme",
+            //        Name = "Authorization",
+            //        In = ParameterLocation.Header,
+            //        Type = SecuritySchemeType.ApiKey,
+            //        Scheme = "Bearer"
+            //    });
 
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            },
-                            Scheme = "oauth2",
-                            Name = "Bearer",
-                            In = ParameterLocation.Header,
+            //    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+            //    {
+            //        {
+            //            new OpenApiSecurityScheme
+            //            {
+            //                Reference = new OpenApiReference
+            //                {
+            //                    Type = ReferenceType.SecurityScheme,
+            //                    Id = "Bearer"
+            //                },
+            //                Scheme = "oauth2",
+            //                Name = "Bearer",
+            //                In = ParameterLocation.Header,
 
-                        },
-                        new List<string>()
-                    }
-                });
-            });
+            //            },
+            //            new List<string>()
+            //        }
+            //    });
+            //});
 
 
-            var mapperConfig = new MapperConfiguration(m =>
-            {
-                m.AddProfile(new MappingProfile());
-            });
+            //var mapperConfig = new MapperConfiguration(m =>
+            //{
+            //    m.AddProfile(new MappingProfile());
+            //});
 
-            IMapper mapper = mapperConfig.CreateMapper();
-            services.AddSingleton(mapper);
-            services.AddMvc();
+            //IMapper mapper = mapperConfig.CreateMapper();
+            //services.AddSingleton(mapper);
+            //services.AddMvc();
 
+            services.InstallServiceInAssemby(Configuration);
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
