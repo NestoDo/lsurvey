@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SL.Survey.Entities.Dto
+namespace SL.Survey.Entities.Dto.Response.V1
 {
-    public class SurveyQuestionOfferedAnswerDto
+    public class SurveyQuestionOfferedAnswerResponse
     {
         public int SurveyQuestionOfferedAnswerId { get; set; }
         public int SurveyQuestionId { get; set; }
         public int OfferedAnswerId { get; set; } 
-        public virtual OfferedAnswerDto OfferedAnswer { get; set; }        
+        public virtual OfferedAnswerResponse OfferedAnswer { get; set; }        
     }
 }

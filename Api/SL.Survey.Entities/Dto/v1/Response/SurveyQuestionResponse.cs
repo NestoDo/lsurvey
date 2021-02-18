@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SL.Survey.Entities.Dto
+namespace SL.Survey.Entities.Dto.Response.V1
 {
-    public class SurveyQuestionDto
+    public class SurveyQuestionResponse
     {
         public int SurveyQuestionId { get; set; }
         public int SurveyId { get; set; }
@@ -13,8 +13,8 @@ namespace SL.Survey.Entities.Dto
         public int SortOrder { get; set; }
         public int QuestionTypeId { get; set; }
 
-        public QuestionDto Question { get; set; }
-        public SurveyDto Survey { get; set; }
-        public SurveyQuestionOfferedAnswerDto SurveyQuestionOfferedAnswers { get; set; }
+        public QuestionResponse Question { get; set; }
+        public SurveyResponse Survey { get; set; }
+        public SurveyQuestionOfferedAnswerResponse SurveyQuestionOfferedAnswers { get; set; }
     }
 }

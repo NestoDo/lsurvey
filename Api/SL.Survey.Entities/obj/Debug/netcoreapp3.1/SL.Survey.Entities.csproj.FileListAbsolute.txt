@@ -6,4 +6,3 @@ C:\projects\lsurvey\Api\SL.Survey.Entities\obj\Debug\netcoreapp3.1\SL.Survey.Ent
 C:\projects\lsurvey\Api\SL.Survey.Entities\obj\Debug\netcoreapp3.1\SL.Survey.Entities.csproj.CoreCompileInputs.cache
 C:\projects\lsurvey\Api\SL.Survey.Entities\obj\Debug\netcoreapp3.1\SL.Survey.Entities.dll
 C:\projects\lsurvey\Api\SL.Survey.Entities\obj\Debug\netcoreapp3.1\SL.Survey.Entities.pdb
-C:\projects\lsurvey\Api\SL.Survey.Entities\obj\Debug\netcoreapp3.1\SL.Survey.Entities.csprojAssemblyReference.cache

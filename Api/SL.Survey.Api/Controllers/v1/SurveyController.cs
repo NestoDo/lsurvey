@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SL.Survey.Api.Contracts.V1;
 using SL.Survey.DataAccess.Data;
-using SL.Survey.Entities.Dto;
+using SL.Survey.Entities.Dto.Response.V1;
 using SL.Survey.Entities.Model;
 using System;
 using System.Collections.Generic;
@@ -38,7 +38,7 @@ namespace SL.Survey.Api.Controllers.V1
             if (survey.Count == 0)
                 return NotFound();
 
-            var surveyDto = _mapper.Map<IEnumerable<SurveyDto>>(survey);
+            var surveyDto = _mapper.Map<IEnumerable<SurveyResponse>>(survey);
 
             _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {survey.Count()} items");
 
@@ -49,16 +49,21 @@ namespace SL.Survey.Api.Controllers.V1
         [HttpGet(ApiRoutes.Survey.GetQuestionsAnswers)]
         public async Task<IActionResult> GetQuestionsAnswers(int id)
         {
-            var question =  await _db.Questions.Where(x => x.QuestionId == id).ToListAsync();
-            //    .Include(u => u.SurveyQuestions)
-            //    .ThenInclude(u => u.SurveyQuestionOfferedAnswers)
-            //    .ThenInclude(u => u.OfferedAnswer).ToListAsync();
+            var question = await _db.Questions
+                .Include(u => u.SurveyQuestions.Where(x => x.SurveyId == id))
+                .ThenInclude(u => u.SurveyQuestionOfferedAnswers)
+                .ThenInclude(u => u.OfferedAnswer).ToListAsync();
+
+            //var question = from q in _db.Questions
+            //               join sq in _db.SurveyQuestions on q.QuestionId equals sq.QuestionId
+            //               join 
+            //               select q;
 
 
             if (question.Count == 0)
                 return NotFound();
 
-            var questionDto = _mapper.Map<IEnumerable<QuestionDto>>(question);
+            var questionDto = _mapper.Map<IEnumerable<QuestionResponse>>(question);
 
             _logger.LogInformation($"{DateTime.UtcNow.ToString("hh:mm:ss")}: Retrieved {question.Count()} items");
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SL.Survey.Entities.Dto
+namespace SL.Survey.Entities.Dto.Response.V1
 {
-    public class OfferedAnswerDto
+    public class OfferedAnswerResponse
     {
         public int OfferedAnswerId { get; set; }
         public string Answer { get; set; }        

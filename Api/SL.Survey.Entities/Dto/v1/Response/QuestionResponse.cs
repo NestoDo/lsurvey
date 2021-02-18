@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SL.Survey.Entities.Dto
+namespace SL.Survey.Entities.Dto.Response.V1
 {
-    public class QuestionDto
+    public class QuestionResponse
     {
         public int QuestionId { get; set; }
         public string Description { get; set; }
         public string Name { get; set; }
-        public  ICollection<SurveyQuestionDto> SurveyQuestions { get; set; }
+        public  ICollection<SurveyQuestionResponse> SurveyQuestions { get; set; }
     }
 }

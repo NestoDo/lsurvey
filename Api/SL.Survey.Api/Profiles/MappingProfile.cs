@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using SL.Survey.Entities.Model;
-using SL.Survey.Entities.Dto;
+using SL.Survey.Entities.Dto.Response.V1;
 
 namespace SL.Survey.Api.Profiles
 {
@@ -12,23 +12,23 @@ namespace SL.Survey.Api.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<OfferedAnswer, OfferedAnswerDto>();
-            CreateMap<OfferedAnswerDto, OfferedAnswer>();
+            CreateMap<OfferedAnswer, OfferedAnswerResponse>();
+            CreateMap<OfferedAnswerResponse, OfferedAnswer>();
 
-            CreateMap<Question, QuestionDto>();
-            CreateMap<QuestionDto, Question>();
+            CreateMap<Question, QuestionResponse>();
+            CreateMap<QuestionResponse, Question>();
 
-            CreateMap<QuestionType, QuestionTypeDto>();
-            CreateMap<QuestionTypeDto, QuestionType>();
+            CreateMap<QuestionType, QuestionTypeResponse>();
+            CreateMap<QuestionTypeResponse, QuestionType>();
 
-            CreateMap<SL.Survey.Entities.Model.Survey, SurveyDto>();
-            CreateMap<SurveyDto, SL.Survey.Entities.Model.Survey>();
+            CreateMap<SL.Survey.Entities.Model.Survey, SurveyResponse>();
+            CreateMap<SurveyResponse, SL.Survey.Entities.Model.Survey>();
 
-            CreateMap<SurveyQuestion, SurveyQuestionDto>();
-            CreateMap<SurveyQuestionDto, SurveyQuestion>();
+            CreateMap<SurveyQuestion, SurveyQuestionResponse>();
+            CreateMap<SurveyQuestionResponse, SurveyQuestion>();
 
-            CreateMap<SurveyQuestionOfferedAnswer, SurveyQuestionOfferedAnswerDto>();
-            CreateMap<SurveyQuestionOfferedAnswer, SurveyQuestionOfferedAnswerDto>();
+            CreateMap<SurveyQuestionOfferedAnswer, SurveyQuestionOfferedAnswerResponse>();
+            CreateMap<SurveyQuestionOfferedAnswer, SurveyQuestionOfferedAnswerResponse>();
 
         }
     }

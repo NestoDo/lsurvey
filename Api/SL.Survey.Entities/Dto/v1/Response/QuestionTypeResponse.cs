@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SL.Survey.Entities.Dto
+namespace SL.Survey.Entities.Dto.Response.V1
 {
-    public class QuestionTypeDto
+    public class QuestionTypeResponse
     {
         public int QuestionTypeId { get; set; }
         public string Description { get; set; }
