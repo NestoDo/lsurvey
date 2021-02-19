@@ -23,8 +23,9 @@ namespace SL.Survey.DataAccess.Data
         public virtual DbSet<SurveyQuestionOfferedAnswer> SurveyQuestionOfferedAnswers { get; set; }
         public virtual DbSet<SurveyType> SurveyTypes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
+            base.OnModelCreating(modelBuilder);
             //modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.ApplyConfiguration(new AnswerConfig());

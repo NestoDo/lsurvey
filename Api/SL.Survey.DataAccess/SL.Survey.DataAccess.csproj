@@ -18,4 +18,8 @@
     <ProjectReference Include="..\SL.Survey.Entities\SL.Survey.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

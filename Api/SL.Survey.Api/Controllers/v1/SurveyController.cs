@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace SL.Survey.Api.Controllers.V1
 {
     [ApiController]
-    [Route("api/v1/surveys")]
+    //[Route("api/v1/surveys")]
     public class SurveysController : Controller
     {
         private readonly ILogger<SurveysController> _logger;

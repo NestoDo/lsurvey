@@ -19,8 +19,8 @@ namespace SL.Survey.Api.Contracts.V1
 
         public static class Identity
         {
-            public const string Login = Base + "identity/loging";
-            public const string Register = Base + "identity/register";
+            public const string Login = Base + "/identity/loging";
+            public const string Register = Base + "/identity/register";
         }
     }
 }

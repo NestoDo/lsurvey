@@ -19,9 +19,9 @@ namespace SL.Survey.Api.Installers
 
             services.AddScoped<IIdentityService, IdentityService>();
 
-            var jwsSettings = new JwtSettings();
-            configuration.Bind(key: nameof(jwsSettings), jwsSettings);
-            services.AddSingleton(jwsSettings);
+            var jwtSettings = new JwtSettings();
+            configuration.Bind(key: nameof(jwtSettings), jwtSettings);
+            services.AddSingleton(jwtSettings);
 
             services.AddAuthentication(configureOptions: x =>
             {
@@ -35,7 +35,7 @@ namespace SL.Survey.Api.Installers
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwsSettings.Secret)),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.Secret)),
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     RequireExpirationTime = false,
