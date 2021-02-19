@@ -56,8 +56,14 @@ namespace SL.Survey.Api.Controllers.V1
 
             //var question = from q in _db.Questions
             //               join sq in _db.SurveyQuestions on q.QuestionId equals sq.QuestionId
-            //               join 
-            //               select q;
+            //               join sqoa in _db.SurveyQuestionOfferedAnswers on sq.SurveyQuestionId equals sqoa.SurveyQuestionId
+            //               join oa in _db.OfferedAnswers on sqoa.OfferedAnswerId equals oa.OfferedAnswerId
+            //               select new
+            //               {
+            //                   QuestionId = q.QuestionId,
+            //                   Description = q.Description,
+            //                   Name =  q.Name
+            //               };
 
 
             if (question.Count == 0)
