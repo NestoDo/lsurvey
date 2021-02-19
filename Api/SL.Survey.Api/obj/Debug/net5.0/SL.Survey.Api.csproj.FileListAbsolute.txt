@@ -69,3 +69,8 @@ C:\projects\lsurvey\Api\SL.Survey.Api\obj\Debug\net5.0\ref\SL.Survey.Api.dll
 C:\projects\lsurvey\Api\SL.Survey.Api\obj\Debug\net5.0\SL.Survey.Api.pdb
 C:\projects\lsurvey\Api\SL.Survey.Api\obj\Debug\net5.0\SL.Survey.Api.genruntimeconfig.cache
 C:\projects\lsurvey\Api\SL.Survey.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\projects\lsurvey\Api\SL.Survey.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\projects\lsurvey\Api\SL.Survey.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\projects\lsurvey\Api\SL.Survey.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\projects\lsurvey\Api\SL.Survey.Api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\projects\lsurvey\Api\SL.Survey.Api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
