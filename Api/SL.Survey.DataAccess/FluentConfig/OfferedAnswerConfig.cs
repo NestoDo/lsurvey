@@ -11,7 +11,7 @@ namespace SL.Survey.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<OfferedAnswer> modelBuilder)
         {
-            modelBuilder.HasKey(e => e.IdOfferedAnswer);
+            modelBuilder.HasKey(e => e.OfferedAnswerId);
             modelBuilder.ToTable("OfferedAnswer", "lsurvey");
             modelBuilder.Property(e => e.Answer)
                     .IsRequired()

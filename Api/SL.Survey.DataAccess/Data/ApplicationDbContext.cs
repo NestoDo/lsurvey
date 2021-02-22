@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using SL.Survey.DataAccess.FluentConfig;
 using SL.Survey.Entities.Model;
 using System;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace SL.Survey.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -22,8 +23,9 @@ namespace SL.Survey.DataAccess.Data
         public virtual DbSet<SurveyQuestionOfferedAnswer> SurveyQuestionOfferedAnswers { get; set; }
         public virtual DbSet<SurveyType> SurveyTypes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
+            base.OnModelCreating(modelBuilder);
             //modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             modelBuilder.ApplyConfiguration(new AnswerConfig());

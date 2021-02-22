@@ -11,26 +11,29 @@ namespace SL.Survey.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<SurveyQuestion> modelBuilder)
         {
-            modelBuilder.HasKey(e => e.IdSurveyQuestion);
+            modelBuilder.HasKey(e => e.SurveyQuestionId);
             modelBuilder.ToTable("SurveyQuestion", "lsurvey");
+
+            modelBuilder.Property(e => e.SurveyQuestionId).UseIdentityColumn();
             modelBuilder.Property(e => e.CreatedDate).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedBy).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            modelBuilder.HasOne(d => d.IdQuestionNavigation)
+
+            modelBuilder.HasOne(d => d.Question)
                 .WithMany(p => p.SurveyQuestions)
-                .HasForeignKey(d => d.IdQuestion)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_SurveyQuestion_Question");
-            modelBuilder.HasOne(d => d.IdQuestionTypeNavigation)
+                .HasForeignKey(d => d.QuestionId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            //.HasConstraintName("FK_SurveyQuestion_Question");
+            modelBuilder.HasOne(d => d.QuestionType)
                 .WithMany(p => p.SurveyQuestions)
-                .HasForeignKey(d => d.IdQuestionType)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_SurveyQuestion_QuestionType");
-            modelBuilder.HasOne(d => d.IdSurveyNavigation)
+                .HasForeignKey(d => d.QuestionTypeId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            //.HasConstraintName("FK_SurveyQuestion_QuestionType");
+            modelBuilder.HasOne(d => d.Survey)
                 .WithMany(p => p.SurveyQuestions)
-                .HasForeignKey(d => d.IdSurvey)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_SurveyQuestion_Survey");            
+                .HasForeignKey(d => d.SurveyId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+                //.HasConstraintName("FK_SurveyQuestion_Survey");            
         }
     }
 }

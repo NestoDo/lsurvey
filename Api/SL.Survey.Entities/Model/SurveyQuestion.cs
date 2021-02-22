@@ -7,25 +7,20 @@ namespace SL.Survey.Entities.Model
 {
     public partial class SurveyQuestion
     {
-        public SurveyQuestion()
-        {
-            SurveyQuestionOfferedAnswers = new HashSet<SurveyQuestionOfferedAnswer>();
-        }
-
-        public int IdSurveyQuestion { get; set; }
-        public int IdSurvey { get; set; }
-        public int IdQuestion { get; set; }
+        public int SurveyQuestionId { get; set; }
+        public int SurveyId { get; set; }
+        public int QuestionId { get; set; }
         public int SortOrder { get; set; }
-        public int IdQuestionType { get; set; }
+        public int QuestionTypeId { get; set; }
         public bool IsEnabled { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public DateTime UpdatedBy { get; set; }
 
-        public virtual Question IdQuestionNavigation { get; set; }
-        public virtual QuestionType IdQuestionTypeNavigation { get; set; }
-        public virtual Survey IdSurveyNavigation { get; set; }
-        public virtual ICollection<SurveyQuestionOfferedAnswer> SurveyQuestionOfferedAnswers { get; set; }
+        public virtual Question Question { get; set; }
+        public virtual QuestionType QuestionType { get; set; }
+        public virtual Survey Survey { get; set; }
+        public virtual SurveyQuestionOfferedAnswer SurveyQuestionOfferedAnswers { get; set; }
     }
 }

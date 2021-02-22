@@ -12,7 +12,7 @@ namespace SL.Survey.Entities.Model
             SurveyQuestionOfferedAnswers = new HashSet<SurveyQuestionOfferedAnswer>();
         }
 
-        public int IdOfferedAnswer { get; set; }
+        public int OfferedAnswerId { get; set; }
         public string Answer { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }

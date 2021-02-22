@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Api/SL.Survey.Service/obj
+/Api/SL.Survey.DataAccess/obj
+/Api/SL.Survey.Entities/obj
+/Api/SL.Survey.Service/bin
+/Api/SL.Survey.DataAccess/bin
+/Api/SL.Survey.Entities/bin
+

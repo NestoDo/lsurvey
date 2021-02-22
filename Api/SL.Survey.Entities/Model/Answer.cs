@@ -7,13 +7,13 @@ namespace SL.Survey.Entities.Model
 {
     public partial class Answer
     {
-        public int IdAnswer { get; set; }
-        public int IdSurveyQuestionOfferedAnswer { get; set; }
+        public int AnswerId { get; set; }
+        public int SurveyQuestionOfferedAnswerId { get; set; }
         public DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public DateTime UpdatedBy { get; set; }
 
-        public virtual SurveyQuestionOfferedAnswer IdSurveyQuestionOfferedAnswerNavigation { get; set; }
+        public virtual SurveyQuestionOfferedAnswer SurveyQuestionOfferedAnswer { get; set; }
     }
 }

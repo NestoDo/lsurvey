@@ -11,7 +11,7 @@ namespace SL.Survey.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<SurveyType> modelBuilder)
         {
-            modelBuilder.HasKey(e => e.IdSurveyType);
+            modelBuilder.HasKey(e => e.SurveyTypeId);
             modelBuilder.ToTable("SurveyType", "lsurvey");
             modelBuilder.Property(e => e.CreatedDate).HasColumnType("datetime");
             modelBuilder.Property(e => e.Description)

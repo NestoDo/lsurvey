@@ -11,7 +11,7 @@ namespace SL.Survey.DataAccess.FluentConfig
     {
         public void Configure(EntityTypeBuilder<SL.Survey.Entities.Model.Survey> modelBuilder)
         {
-            modelBuilder.HasKey(e => e.IdSurvey);
+            modelBuilder.HasKey(e => e.SurveyId);
             modelBuilder.ToTable("Survey", "lsurvey");
             modelBuilder.Property(e => e.CreatedDate).HasColumnType("datetime");
             modelBuilder.Property(e => e.Instructions)
@@ -26,11 +26,11 @@ namespace SL.Survey.DataAccess.FluentConfig
                 .IsUnicode(false);
             modelBuilder.Property(e => e.UpdatedBy).HasColumnType("datetime");
             modelBuilder.Property(e => e.UpdatedDate).HasColumnType("datetime");
-            modelBuilder.HasOne(d => d.IdSurveyTypeNavigation)
+            modelBuilder.HasOne(d => d.SurveyType)
                 .WithMany(p => p.Surveys)
-                .HasForeignKey(d => d.IdSurveyType)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Survey_SurveyType");
+                .HasForeignKey(d => d.SurveyTypeId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+                //.HasConstraintName("FK_Survey_SurveyType");
         }
     }
 }
