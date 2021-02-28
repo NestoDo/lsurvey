@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using SL.Misc.Extensions;
 using SL.Survey.Api.Contracts.V1;
 using SL.Survey.DataAccess.Data;
 using SL.Survey.Entities.Dto.Response.V1;
@@ -15,7 +18,7 @@ using System.Threading.Tasks;
 namespace SL.Survey.Api.Controllers.V1
 {
     [ApiController]
-    //[Route("api/v1/surveys")]
+    [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
     public class SurveysController : Controller
     {
         private readonly ILogger<SurveysController> _logger;
@@ -34,6 +37,8 @@ namespace SL.Survey.Api.Controllers.V1
         public async Task<IActionResult> GetAll()
         {
             var survey = await _db.Surveys.ToListAsync();
+
+            var aaa = HttpContext.GetUserId();
 
             if (survey.Count == 0)
                 return NotFound();
