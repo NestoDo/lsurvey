@@ -22,6 +22,7 @@ namespace SL.Survey.DataAccess.Data
         public virtual DbSet<SurveyQuestion> SurveyQuestions { get; set; }
         public virtual DbSet<SurveyQuestionOfferedAnswer> SurveyQuestionOfferedAnswers { get; set; }
         public virtual DbSet<SurveyType> SurveyTypes { get; set; }
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {

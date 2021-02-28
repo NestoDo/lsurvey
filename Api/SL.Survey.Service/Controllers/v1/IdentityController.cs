@@ -33,7 +33,8 @@ namespace SL.Survey.Api.Controllers.V1
 
             return Ok(new AuthSuccessResponse
             {
-                Token = authResponse.Token
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
             });
         }
 
@@ -45,23 +46,44 @@ namespace SL.Survey.Api.Controllers.V1
                 return BadRequest(new AuthFailedResponse
                 {
                     Errors = ModelState.Values.SelectMany(x => x.Errors.Select(x => x.ErrorMessage))
-            });
-        }
+                });
+            }
 
-        var authResponse = await _identityService.LoginAsync(request.Email, request.Password);
+            var authResponse = await _identityService.LoginAsync(request.Email, request.Password);
 
             if (!authResponse.Success)
             {
                 return BadRequest(new AuthFailedResponse
                 {
                     Errors = authResponse.Errors
-    });
+                });
             }
 
-return Ok(new AuthSuccessResponse
-{
-    Token = authResponse.Token
-});
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            });;
+        }
+
+        [HttpPost(ApiRoutes.Identity.Refresh)]
+        public async Task<IActionResult> Refresh([FromBody] RefreshTokenRequest request)
+        {
+            var authResponse = await _identityService.RefreshTokenAsync(request.Token, request.RefreshToken);
+
+            if (!authResponse.Success)
+            {
+                return BadRequest(new AuthFailedResponse
+                {
+                    Errors = authResponse.Errors
+                });
+            }
+
+            return Ok(new AuthSuccessResponse
+            {
+                Token = authResponse.Token,
+                RefreshToken = authResponse.RefreshToken
+            }); ;
         }
     }
 }

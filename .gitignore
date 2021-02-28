@@ -5,7 +5,9 @@
 /Api/SL.Survey.Service/obj
 /Api/SL.Survey.DataAccess/obj
 /Api/SL.Survey.Entities/obj
+/Api/SL.Misc/obj
 /Api/SL.Survey.Service/bin
 /Api/SL.Survey.DataAccess/bin
 /Api/SL.Survey.Entities/bin
+/Api/SL.Misc/bin
 

@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SL.Misc\SL.Misc.csproj" />
     <ProjectReference Include="..\SL.Survey.DataAccess\SL.Survey.DataAccess.csproj" />
   </ItemGroup>
 

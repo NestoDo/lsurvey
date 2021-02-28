@@ -10,8 +10,8 @@ using SL.Survey.DataAccess.Data;
 namespace SL.Survey.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210219222543_AddedDBschema")]
-    partial class AddedDBschema
+    [Migration("20210225170502_AddSchema")]
+    partial class AddSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -350,6 +350,37 @@ namespace SL.Survey.DataAccess.Migrations
                     b.ToTable("QuestionType", "lsurvey");
                 });
 
+            modelBuilder.Entity("SL.Survey.Entities.Model.RefreshToken", b =>
+                {
+                    b.Property<string>("Token")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpiredDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Invalidated")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("JwtId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Used")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Token");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("RefreshTokens");
+                });
+
             modelBuilder.Entity("SL.Survey.Entities.Model.Survey", b =>
                 {
                     b.Property<int>("SurveyId")
@@ -575,6 +606,15 @@ namespace SL.Survey.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("SurveyQuestionOfferedAnswer");
+                });
+
+            modelBuilder.Entity("SL.Survey.Entities.Model.RefreshToken", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SL.Survey.Entities.Model.Survey", b =>
